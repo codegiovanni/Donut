@@ -26,7 +26,7 @@ y_offset = rows / 2
 A, B = 0, 0  # rotating animation
 
 theta_spacing = 10
-phi_spacing = 1
+phi_spacing = 1 # for faster rotation change to 2, 3 or more, but first change 86, 87 lines as commented
 
 chars = ".,-~:;=!*#$@"  # luminance index
 
@@ -83,8 +83,8 @@ while run:
         y_start = 0
 
     for i in range(len(b)):
-        A += 0.000002
-        B += 0.000001
+        A += 0.000002 # for faster rotation change to 0.0002
+        B += 0.000001 # for faster rotation change to 0.0001
         if i == 0 or i % columns:
             text_display(b[i], x_start, y_start)
             x_start += x_separator
