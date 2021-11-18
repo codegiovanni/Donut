@@ -73,7 +73,7 @@ while run:
             t = c * h * g - f * e
             x = int(x_offset + 40 * D * (l * h * m - t * n))  # 3D x coordinate after rotation
             y = int(y_offset + 20 * D * (l * h * n + t * m))  # 3D y coordinate after rotation
-            o = int(x + columns * y)  # 3D z coordinate after rotation
+            o = int(x + columns * y)  
             N = int(8 * ((f * e - c * d * g) * m - c * d * e - f * g - l * d * n))  # luminance index
             if rows > y and y > 0 and x > 0 and columns > x and D > z[o]:
                 z[o] = D
@@ -83,8 +83,8 @@ while run:
         y_start = 0
 
     for i in range(len(b)):
-        A += 0.000002 # for faster rotation change to 0.0002
-        B += 0.000001 # for faster rotation change to 0.0001
+        A += 0.0002 # for faster rotation change to bigger value
+        B += 0.0001 # for faster rotation change to bigger value
         if i == 0 or i % columns:
             text_display(b[i], x_start, y_start)
             x_start += x_separator
@@ -101,5 +101,8 @@ while run:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
 
