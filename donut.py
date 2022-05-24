@@ -83,8 +83,8 @@ while run:
         y_start = 0
 
     for i in range(len(b)):
-        A += 0.0002 # for faster rotation change to bigger value
-        B += 0.0001 # for faster rotation change to bigger value
+        A += 0.00004  # for faster rotation change to bigger value
+        B += 0.00002  # for faster rotation change to bigger value
         if i == 0 or i % columns:
             text_display(b[i], x_start, y_start)
             x_start += x_separator
@@ -101,8 +101,8 @@ while run:
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            run = False
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_ESCAPE:
-                running = False
+                run = False
 
